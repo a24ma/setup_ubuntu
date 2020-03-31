@@ -41,6 +41,7 @@ edit_with_backup() {
     tag="${top_id}_${setup_id}"
     sed "/^${comment_str} <${tag}>/,/^${comment_str}<\/${tag}>/d" "$edit_path" > _out
     cat out >> _out
+    touch -t "0001010000.00" ~/$top_id/backup/${backup_id}_dummy
     latest_backup="$(ls -t ~/$top_id/backup/${backup_id}* | head -1)"
     if diff -q "$edit_path" "$latest_backup"; then :; else
         cp -f "$edit_path" ~/$top_id/backup/${backup_id}${baksuf}
@@ -188,7 +189,8 @@ setup_python() {
 export PYENV_ROOT="\$HOME/.pyenv"
 export PATH="\$PYENV_ROOT/bin:\$PATH"
 eval "\$(pyenv init -)"
-eval "\$(pyenv virtualenv init -)"
+eval "\$(pyenv virtualenv-init -)"
+export VIRTUAL_ENV_DISABLE_PROMPT=1
 # </${top_id}_python>
 EOF
     edit_with_backup ~/.bashrc python bashrc "#"
