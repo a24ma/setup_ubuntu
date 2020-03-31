@@ -25,6 +25,8 @@ Ubuntu を bash で設定するツール。
 
 # Installation
 
+適切なディレクトリに移動し、proxy変数を設定した後、以下のコマンドをターミナルで実行。
+
 ```bash
 cd "<directory>"              # TO BE EDITED
 proxy="http://<proxy>:<port>" # TO BE EDITED
