@@ -153,9 +153,15 @@ setup_ssh() {
 }
 
 setup_git() {
+    require deviceid
+    require gitemail
+    require gitname
     sudo apt install -y git
+    sshpath=~/.ssh/rsa_$deviceid
     echo "[INFO:SSH] Login GitHub and click Profile>Settings>SSH keys."
     echo "[INFO:SSH] Use public key: $(cat ${sshpath}.pub)"
+    git config --global user.email $gitemail
+    git config --global user.name $gitname
 }
 
 setup_python() {
