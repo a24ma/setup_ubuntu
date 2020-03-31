@@ -40,7 +40,7 @@ EOF
 sudo apt update -y
 sudo apt upgrade -y
 sudo apt install -y git
-git clone https://github.com/a24ma/setup_ubuntu
+git clone git@github.com:a24ma/setup_ubuntu
 ```
 
 # How to use

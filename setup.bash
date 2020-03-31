@@ -162,6 +162,17 @@ setup_git() {
     echo "[INFO:SSH] Use public key: $(cat ${sshpath}.pub)"
     git config --global user.email $gitemail
     git config --global user.name $gitname
+    cat <<EOF > out
+# <${top_id}_git>
+Host Git
+    User git
+    HostName github.com
+    IdentityFile ~/.ssh/rsa_$deviceid
+    IdentitiesOnly yes
+    TCPKeepAlive yes
+# </${top_id}_git>
+EOF
+    edit_with_backup ~/.ssh/config git ssh_config "#"
 }
 
 setup_python() {
