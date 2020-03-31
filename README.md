@@ -45,6 +45,6 @@ git clone git@github.com:a24ma/setup_ubuntu
 
 # How to use
 
-1. setup.conf のパラメータを設定。
+1. setup_base.conf をコピーして setup.conf を作成し、パラメータを設定。
 2. `./setup.bash` を実行(setup.conf のあるディレクトリで実行すること)。
 3. 再実行でスキップする場合は `enable_xxx=n` に設定(or コメントアウト)すること。
