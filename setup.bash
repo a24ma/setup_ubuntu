@@ -173,9 +173,9 @@ eval "\$(pyenv virtualenv-init -)"
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 # </${top_id}_python>
 EOF
-    edit_with_backup ~/.bashrc python bashrc "#"
-    source ~/.bashrc
+    source out
     pyenv -v
+    edit_with_backup ~/.bashrc python bashrc "#"
 
     sudo apt install -y \
         libffi-dev libssl-dev zlib1g-dev liblzma-dev \
