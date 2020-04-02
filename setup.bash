@@ -152,6 +152,7 @@ Host Git
     TCPKeepAlive yes
 # </${top_id}_git>
 EOF
+    touch ~/.ssh/config
     edit_with_backup ~/.ssh/config git ssh_config "#"
 }
 
