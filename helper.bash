@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-on_failed() { 
+failed_on() { 
     echo "failed on $1"; rm -f out
     exit 1
 }
 
 require() {
     if [[ -z "$(eval "echo \$${1:?}")" ]]; then
-        on_failed "undefined:$1"
+        failed_on "eval:\$$1 (undefined)"
     fi
 }
 

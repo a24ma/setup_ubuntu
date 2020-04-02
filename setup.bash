@@ -10,7 +10,7 @@ fi
 
 main() {
     (
-        sudo echo
+        sudo echo || failed_on "authentication"
         export baksuf=".bak_$(date '+%Y%m%d_%H%M%S')"
         read_conf
         setup top_dir
@@ -31,7 +31,7 @@ main() {
 
 read_conf() {
     set -e
-    if [ ! -f "setup.conf" ]; then on_failed "'setup.conf' not found"; fi
+    if [ ! -f "setup.conf" ]; then failed_on "finding 'setup.conf'"; fi
     while read line; do
         if [[ -z "$line" ]]; then continue; fi
         if [[ "${line:0:1}" == "#" ]]; then continue; fi
@@ -49,7 +49,7 @@ setup() {
         return
     fi
     echo "[INFO] Run $command"
-    $command || on_failed "$command"
+    $command || failed_on "$command"
 }
 
 setup_top_dir() {
