@@ -13,7 +13,7 @@ Ubuntu を bash で設定するツール。
   * C
   * python (pyenv+virtualenv): py2 と py3 の仮想環境をデフォルトで作成(py3 が global)
   * go
-* VSCode の設定 (設定共有は手動)
+* ~~VSCode の設定 (設定共有は手動)~~ VSCode は手動で deb インストール必須。誘導だけ表示。
 * Chromium の設定 (アカウント設定は手動)
 
 バックアップ処理以外は冪等性を持つ。

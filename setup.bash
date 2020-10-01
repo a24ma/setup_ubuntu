@@ -205,11 +205,20 @@ setup_go() {
 }
 
 setup_vscode() {
-    sudo snap set system proxy.http="$proxy"
-    sudo snap set system proxy.https="$proxy"
-    sudo snap install code --classic
-    sudo snap refresh code
+    # sudo snap set system proxy.http="$proxy"
+    # sudo snap set system proxy.https="$proxy"
+    # sudo snap install code --classic
+    # sudo snap refresh code
+    echo "[INFO:VSCODE] snap is outdated."
+    echo "[INFO:VSCODE] Must install deb from vscode's web page."
+    echo "[INFO:VSCODE] https://code.visualstudio.com/"
+    echo "[INFO:VSCODE] Install vscode following command.
+> sudo apt install ./vscode.deb
+> sudo apt install -y apt-transport-https
+> sudo apt update
+"
     echo "[INFO:VSCODE] Install extension 'Settings Sync'."
+    read -p "[INFO:VSCODE] Wait for installing ... (hit enter)" -n 1
 }
 
 setup_chromium() {
